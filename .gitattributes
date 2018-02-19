@@ -1,1 +1,2 @@
-
+* linguist-vendored
+*.HTML linguist-language=Java
