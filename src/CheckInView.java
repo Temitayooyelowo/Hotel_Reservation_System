@@ -129,9 +129,9 @@ public class CheckInView extends VBox {
                 Optional result = dialog.showAndWait();
 
                 if(result.get() == ButtonType.CANCEL ){
-                    System.out.println("Cancel button is clicked");
+                    //System.out.println("Cancel button is clicked");
                 }else{
-                    System.out.println("Purchase button is clicked");
+                    //System.out.println("Purchase button is clicked");
 
                     savePressed = false;
                     if(Database.findAvailableRoom( bookingInfoPane.roomTypeBox.getValue().toString(),
@@ -209,7 +209,7 @@ public class CheckInView extends VBox {
                             alert.showAndWait();
                         }
                     }else{
-                        System.out.println("No available room was found. Customer could NOT be checked in!");
+                        //System.out.println("No available room was found. Customer could NOT be checked in!");
                         alert.setAlertType(Alert.AlertType.ERROR);
                         alert.setTitle("IMPORTANT");
                         alert.setHeaderText(null);
@@ -219,7 +219,7 @@ public class CheckInView extends VBox {
                     }
                 }
             } else{
-                System.out.println("Not all required fields were filled out!!!!");
+                ////System.out.println("Not all required fields were filled out!!!!");
                 alert.setAlertType(Alert.AlertType.ERROR);
                 alert.setTitle("IMPORTANT");
                 alert.setHeaderText(null);
@@ -250,7 +250,7 @@ public class CheckInView extends VBox {
             customerInfoPane.getPostalCodeTextField().setText("");
             customerInfoPane.getPhoneNumberTextField().setText("");
             customerInfoPane.getEmailAddressTextField().setText("");
-            //System.out.println("Back pressed: " + backPressed);
+            ////System.out.println("Back pressed: " + backPressed);
             backPressed=false;
         }//end of if(backPressed) statement
     }

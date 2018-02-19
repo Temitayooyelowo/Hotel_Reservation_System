@@ -501,29 +501,26 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
     }
 
     public static void searchByCustomerID(String cuID){
         Connection conn = null;
         Statement stmt = null;
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            //Execute a query
             stmt = conn.createStatement();
 
-            String sql = "SELECT * FROM CUSTOMERS WHERE customer_id LIKE '%"+
-                    cuID + "%'";
+            String sql = "SELECT * FROM CUSTOMERS WHERE customer_id LIKE '%"+ cuID + "%'";
             ResultSet rs = stmt.executeQuery(sql);
-            //STEP 5: Extract data from result set
+
+            //Extract data from result set
             printCustomers(rs);
             rs.close();
         }catch(SQLException se){
@@ -546,7 +543,6 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
     }
 
     public static void printCustomers(ResultSet rs){
@@ -603,22 +599,21 @@ public class Database {
         Connection conn = null;
         Statement stmt = null;
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
 
             String sql = "SELECT * FROM ROOMS ";
             ResultSet rs = stmt.executeQuery(sql);
 
-            //STEP 5: Extract data from result set
+            //Extract data from result set
             while (rs.next()) {
                 typesOfRooms.add(new Room(rs.getString("type"), rs.getInt("cost")));
             }
@@ -644,7 +639,6 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
 
         return typesOfRooms;
     }
@@ -655,22 +649,20 @@ public class Database {
         Connection conn = null;
         Statement stmt = null;
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //pen a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            //Execute a query
             stmt = conn.createStatement();
 
             String sql = "SELECT * FROM MEALPLAN ";
             ResultSet rs = stmt.executeQuery(sql);
 
-            //STEP 5: Extract data from result set
+            //Extract data from result set
             while (rs.next()) {
                 typesOfMealPlans.add(new MealPlan(rs.getString("name"),
                         rs.getInt("cost")));
@@ -683,7 +675,7 @@ public class Database {
             //Handle errors for Class.forName
             e.printStackTrace();
         }finally{
-            //finally block used to close resources
+            //close resources
             try{
                 if(stmt!=null)
                     conn.close();
@@ -696,7 +688,6 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
 
         return typesOfMealPlans;
     }
@@ -707,19 +698,17 @@ public class Database {
         Statement stmt=null;
 
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the CUSTOMER table...");
             stmt = conn.createStatement();
 
-            System.out.println("Getting the customer id");
             String sql = "SELECT customer_id FROM CUSTOMERS";
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -734,7 +723,7 @@ public class Database {
             //Handle errors for Class.forName
             e.printStackTrace();
         }finally{
-            //finally block used to close resources
+            //close resources
             try{
                 if(stmt!=null)
                     conn.close();
@@ -760,13 +749,11 @@ public class Database {
             //STEP 2: Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            //Execute a query
             stmt = conn.createStatement();
             String sql = "SELECT * FROM RESERVATION WHERE customer_id = '" + customerID + "'";
             ResultSet rs = stmt.executeQuery(sql);
@@ -813,7 +800,7 @@ public class Database {
             //Handle errors for Class.forName
             e.printStackTrace();
         }finally{
-            //finally block used to close resources
+            //close resources
             try{
                 if(stmt!=null)
                     conn.close();
@@ -826,7 +813,6 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
         return null;
     }
 }
