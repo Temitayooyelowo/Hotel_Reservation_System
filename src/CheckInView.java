@@ -1,6 +1,7 @@
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -123,6 +124,8 @@ public class CheckInView extends VBox {
                     (bookingInfoPane.getMealPlanBox().getValue()!= null)) {
 
                 Dialog dialog = new PaymentDialogBox();
+                stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("hotel2.jpg")); // To add an icon
                 Optional result = dialog.showAndWait();
 
                 if(result.get() == ButtonType.CANCEL ){
