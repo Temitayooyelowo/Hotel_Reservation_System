@@ -18,15 +18,14 @@ public class Database {
         Statement stmt=null;
 
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the CUSTOMER table...");
             stmt = conn.createStatement();
 
@@ -68,15 +67,14 @@ public class Database {
         int reservation_id = 0;
 
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the RESERVATION table...");
             stmt = conn.createStatement();
 
@@ -114,7 +112,6 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
     }
 
     public static void insertReservedRoom(String roomName, String date_from, String date_to){
@@ -126,15 +123,15 @@ public class Database {
         //viewCustomers();
 
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the RESERVED_ROOMS table...");
             stmt = conn.createStatement();
 
@@ -175,15 +172,15 @@ public class Database {
         Statement stmt=null;
 
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the RESERVED_ROOMS table...");
             stmt = conn.createStatement();
 
@@ -228,15 +225,15 @@ public class Database {
         ArrayList<Integer> roomNumbers = new ArrayList<Integer>();
 
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the RESERVED_ROOMS table...");
             stmt = conn.createStatement();
 
@@ -317,15 +314,15 @@ public class Database {
         Statement stmt = null;
         int customer_id = 0;
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Inserting records into the customers table...");
             stmt = conn.createStatement();
 
@@ -355,7 +352,6 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
         return customer_id;
     }
 
@@ -364,15 +360,15 @@ public class Database {
         Statement stmt = null;
         int reservation_id = 0;
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
+            //Open a connection
             System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
+            //Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
             String sql = "SELECT * FROM RESERVATION WHERE customer_id = '" + customerID + "'";
@@ -411,28 +407,25 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
     }
 
     public static void viewCustomers(){
         Connection conn = null;
         Statement stmt = null;
         try{
-            //STEP 2: Register JDBC driver
+            //egister JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            //Execute a query
             stmt = conn.createStatement();
 
             String sql = "SELECT * FROM CUSTOMERS";
             ResultSet rs = stmt.executeQuery(sql);
-            //STEP 5: Extract data from result set
+            //Extract data from result set
             printCustomers(rs);
             rs.close();
         }catch(SQLException se){
@@ -455,30 +448,28 @@ public class Database {
                 se.printStackTrace();
             }//end finally try
         }//end try
-        System.out.println("Goodbye!");
     }
 
     public static void searchByName(String name){
         Connection conn = null;
         Statement stmt = null;
         try{
-            //STEP 2: Register JDBC driver
+            //Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
+            //Open a connection
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("Connected database successfully...");
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
+            //Execute a query
             stmt = conn.createStatement();
 
             String sql = "SELECT * FROM CUSTOMERS WHERE firstname LIKE '%"+
                     name + "%'";
             ResultSet rs = stmt.executeQuery(sql);
-            //STEP 5: Extract data from result set
-            System.out.println("SIZE: " + rs.getFetchSize() + "");
+
+            //Extract data from result set
+            //System.out.println("SIZE: " + rs.getFetchSize() + "");
             printCustomers(rs);
             rs.close();
         }catch(SQLException se){
